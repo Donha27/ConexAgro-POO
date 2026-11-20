@@ -4,7 +4,7 @@ Plataforma acadêmica para organizar e consultar informações sobre peças e m�
 
 ## Integrante
 
-- Gabriel de Jesus Coelho Donha — **RA: preencher antes da entrega**.
+- Gabriel de Jesus Coelho Donha.
 - Acrescentar os demais integrantes e suas contribuições, caso o trabalho seja em grupo.
 
 ## Tecnologias
@@ -85,7 +85,7 @@ Antes da entrega, acrescentar uma captura do catálogo e outra do cadastro de pe
 
 ## Banco de dados
 
-Link para download do script SQL: a adicionar.
+[Baixar o script SQL do banco de dados no OneDrive](https://1drv.ms/u/c/5c4d97af97bbeda3/IQDnxKul4GvCSYRzyiHY_HVHAQOU4_I3essWXrwXnWGhdOM?e=hWntF9)
 
 ## Transparência sobre o uso de IA
 
