@@ -1,0 +1,6 @@
+# Copie para conexao.properties e preencha os dados do MySQL local.
+# O arquivo real conexao.properties e privado e fica fora do Git.
+db.url=jdbc:mysql://localhost:3306/conexagro
+db.user=SEU_USUARIO_MYSQL
+db.password=SUA_SENHA_MYSQL
+web.port=8080

@@ -54,7 +54,7 @@ O arquivo local `conexao.properties` não deve ser publicado.
 1. Instale o JDK e o MySQL nas versões indicadas.
 2. Abra a pasta do projeto no IntelliJ, configure o JDK e marque `src` como pasta de código-fonte se necessário.
 3. Adicione o arquivo JAR do MySQL Connector/J às dependências do projeto.
-4. No MySQL Workbench, abra `ConexAgro_POO_Banco_Completo.sql` e execute o arquivo inteiro. Ele instala o banco `conexagro`.
+4. Baixe `ConexAgro_POO_Banco_Completo.sql` pelos links da seção **Banco de dados**. No MySQL Workbench, abra e execute o arquivo inteiro. Ele instala o banco `conexagro`.
 5. Na raiz do projeto, copie `conexao.properties.example` para `conexao.properties` **somente se esse arquivo ainda não existir**.
 6. Preencha usuário, senha, endereço e porta do MySQL com os dados do computador onde o sistema será executado.
 7. Configure o diretório de trabalho da execução como a raiz do projeto, onde estão `src`, `web`, `dados` e `conexao.properties`.
@@ -87,11 +87,27 @@ Antes da entrega, acrescentar uma captura do catálogo e outra do cadastro de pe
 
 [Baixar o script SQL do banco de dados no OneDrive](https://1drv.ms/u/c/5c4d97af97bbeda3/IQDnxKul4GvCSYRzyiHY_HVHAQOU4_I3essWXrwXnWGhdOM?e=hWntF9)
 
+[Consultar a cópia do SQL versão 1.1 usada nos testes](https://github.com/Donha27/ConexAgro-POO/blob/52abda1316032a395c699cffcba56cf548a7bfee/tests/fixtures/ConexAgro_POO_Banco_Completo.sql)
+
+## Validação automatizada
+
+[Consultar a execução aprovada no GitHub Actions](https://github.com/Donha27/ConexAgro-POO/actions/runs/44652229212).
+
+Ambiente: Java 17, MySQL 8.0 e MySQL Connector/J 9.3.0.
+
+- **120 verificações de integração aprovadas**, iniciando a `Principal`, usando a API HTTP real e consultando o banco.
+- **45 verificações HTTP em memória aprovadas**, executando `Web.TesteWeb`.
+- Compilação dos 52 arquivos Java e verificação de sintaxe de `web/app.js` aprovadas.
+- Instalação limpa e reexecução do SQL, imagens, autenticação, permissões, CRUDs de categorias e peças, cadastros de apoio, publicação, rollback e persistência após reiniciar verificados.
+
+O código da aplicação testado corresponde ao commit [`58b1e85195d0`](https://github.com/Donha27/ConexAgro-POO/commit/58b1e85195d03ed3cb65f7b567025fb59cbbbea7). Os testes estão na branch [`codex/validacao-crud-20261119`](https://github.com/Donha27/ConexAgro-POO/tree/codex/validacao-crud-20261119).
+
+O SQL executado foi a **versão 1.1**, disponível no link da cópia validada acima. O download automático pelo OneDrive não ficou disponível, portanto o arquivo externo não pôde ser comparado com essa cópia. A interface visual deve ser conferida manualmente seguindo o roteiro de uso.
+
 ## Transparência sobre o uso de IA
 
 A inteligência artificial apoiou a estruturação, a geração e a revisão de partes do código, da interface e dos scripts SQL. Também houve apoio no roteiro e na produção de materiais audiovisuais da apresentação.
 
 Gabriel definiu o escopo, configurou o ambiente e realizou testes locais. Registrar as contribuições reais dos demais integrantes, se houver.
 
-Foram realizadas verificações do script SQL em MySQL e de compilação e modelos Java no ambiente de apoio. O teste completo do site conectado ao banco nesse ambiente não foi concluído devido às restrições de comunicação local; seguir o roteiro manual acima no ambiente de execução.
 
