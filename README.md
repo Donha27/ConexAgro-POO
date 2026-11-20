@@ -81,7 +81,11 @@ Antes da entrega, acrescentar uma captura do catálogo e outra do cadastro de pe
 
 ## Vídeo
 
-Acrescentar o link do vídeo de apresentação do trabalho. O arquivo MP4 não faz parte deste repositório.
+[Assistir ao vídeo de apresentação no OneDrive](https://1drv.ms/v/c/5c4d97af97bbeda3/IQDPNvRTEDYDQr_0GY1Zy1i7AZmVm56UoCKrL6znrMrJCKE?e=22IL3d)
+
+## Banco de dados
+
+Link para download do script SQL: a adicionar.
 
 ## Transparência sobre o uso de IA
 
