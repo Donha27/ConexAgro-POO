@@ -1,0 +1,56 @@
+name: Validar CRUD com MySQL
+
+on:
+  push:
+    branches:
+      - codex/validacao-crud-20261119
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  integracao:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: conexagro-ci-temporario
+          MYSQL_ROOT_HOST: "%"
+        ports:
+          - 3307:3306
+        options: >-
+          --health-cmd="mysqladmin ping -h 127.0.0.1 -pconexagro-ci-temporario"
+          --health-interval=5s
+          --health-timeout=3s
+          --health-retries=30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - name: Compilar o projeto e conferir o JavaScript
+        run: |
+          mkdir -p .audit/classes
+          curl --fail --location --retry 3 --silent --show-error https://repo.maven.apache.org/maven2/com/mysql/mysql-connector-j/9.3.0/mysql-connector-j-9.3.0.jar --output .audit/mysql.jar
+          find src -name '*.java' -print0 | xargs -0 javac --release 17 -encoding UTF-8 -d .audit/classes
+          node --check web/app.js
+          java -cp .audit/classes Web.TesteWeb
+      - name: Testar instalacao, relacionamentos e CRUD pela API real
+        env:
+          MYSQL_CONTAINER: ${{ job.services.mysql.id }}
+          MYSQL_PWD: conexagro-ci-temporario
+          AUDIT_SOURCE_COMMIT: 58b1e85195d03ed3cb65f7b567025fb59cbbbea7
+        run: python3 tests/validar_integracao.py
+      - name: Guardar evidencias
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: resultado-validacao-crud
+          path: |
+            .audit/resultado.json
+            .audit/aplicacao.log
+          if-no-files-found: ignore
